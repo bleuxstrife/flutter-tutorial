@@ -85,7 +85,7 @@ class _HomePage3State extends State<HomePage3> {
         margin: EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
-            Container(child: StringObject(controller: stringController)),
+            Container(child: AllObject(controller: stringController)),
             InkWell(
               onTap: () {
                 _changeString("Keren Bos");
@@ -94,7 +94,7 @@ class _HomePage3State extends State<HomePage3> {
             ),
             Container(
                 margin: EdgeInsets.only(top: 16.0),
-                child: IntObject(intController: intController)),
+                child: AllObject(controller: intController)),
             InkWell(
               onTap: () {
                 _changeInt();
@@ -103,7 +103,7 @@ class _HomePage3State extends State<HomePage3> {
             ),
             Container(
                 margin: EdgeInsets.only(top: 16.0),
-                child: ListObject(listController: listController)),
+                child: AllObject(controller: listController)),
             InkWell(
               onTap: () {
                 _changeListString();
@@ -112,7 +112,7 @@ class _HomePage3State extends State<HomePage3> {
             ),
             Container(
                 margin: EdgeInsets.only(top: 16.0),
-                child: MapObject(mapController: mapController)),
+                child: AllObject(controller: mapController)),
             InkWell(
               onTap: () {
                 _changeMap();
@@ -121,7 +121,7 @@ class _HomePage3State extends State<HomePage3> {
             ),
             Container(
                 margin: EdgeInsets.only(top: 16.0),
-                child: ClassObject(classController: classController)),
+                child: AllObject(controller: classController)),
             InkWell(
               onTap: () {
                 _changeObject();
@@ -152,6 +152,10 @@ Widget _buttonUI(String text){
 
 class StringController extends ValueNotifier<String> {
   StringController(String value) : super(value);
+
+  fungsiCustom() {
+
+  }
 }
 
 class IntController extends ValueNotifier<int>{
@@ -174,103 +178,103 @@ class ClassController extends ValueNotifier<Tutorial3>{
 }
 
 
-class ClassObject extends StatefulWidget {
-  final ClassController classController;
-
-  ClassObject({this.classController});
-
-  @override
-  _ClassObjectState createState() => _ClassObjectState();
-}
-
-class _ClassObjectState extends State<ClassObject> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text("Name: ${widget.classController.value.name}"),
-        Text("Age: ${widget.classController.value.age}"),
-        Text("Salary: ${widget.classController.value.salary}"),
-      ],
-    );
-  }
-
-  @override
-  void initState() {
-      widget.classController.addListener((){
-        setState(() {
-
-        });
-      });
-  }
-}
-
-
-
-
-
-
-class MapObject extends StatefulWidget{
-  final MapController mapController;
-
-  MapObject({this.mapController});
-
-  @override
-  _MapObjectState createState() => _MapObjectState();
-}
-
-class _MapObjectState extends State<MapObject> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(child: Text(widget.mapController.value["Name"]));
-  }
-
-  @override
-  void initState() {
-    widget.mapController.addListener((){
-      setState(() {
-
-      });
-    });
-  }
-}
-
-
-class ListObject extends StatefulWidget {
-  final ListController listController;
-
-   ListObject({this.listController});
-
-
-  @override
-  _ListObjectState createState() => _ListObjectState();
-}
-
-
-
-
-
-class _ListObjectState extends State<ListObject> {
-
-  @override
-  void initState() {
-    widget.listController.addListener(() {
-      setState(() {
-
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return  _displayList(widget.listController.value);
-  }
-}
-
+//class ClassObject extends StatefulWidget {
+//  final ClassController classController;
+//
+//  ClassObject({this.classController});
+//
+//  @override
+//  _ClassObjectState createState() => _ClassObjectState();
+//}
+//
+//class _ClassObjectState extends State<ClassObject> {
+//
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Column(
+//      children: <Widget>[
+//        Text("Name: ${widget.classController.value.name}"),
+//        Text("Age: ${widget.classController.value.age}"),
+//        Text("Salary: ${widget.classController.value.salary}"),
+//      ],
+//    );
+//  }
+//
+//  @override
+//  void initState() {
+//      widget.classController.addListener((){
+//        setState(() {
+//
+//        });
+//      });
+//  }
+//}
+//
+//
+//
+//
+//
+//
+//class MapObject extends StatefulWidget{
+//  final MapController mapController;
+//
+//  MapObject({this.mapController});
+//
+//  @override
+//  _MapObjectState createState() => _MapObjectState();
+//}
+//
+//class _MapObjectState extends State<MapObject> {
+//
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(child: Text(widget.mapController.value["Name"]));
+//  }
+//
+//  @override
+//  void initState() {
+//    widget.mapController.addListener((){
+//      setState(() {
+//
+//      });
+//    });
+//  }
+//}
+//
+//
+//class ListObject extends StatefulWidget {
+//  final ListController listController;
+//
+//   ListObject({this.listController});
+//
+//
+//  @override
+//  _ListObjectState createState() => _ListObjectState();
+//}
+//
+//
+//
+//
+//
+//class _ListObjectState extends State<ListObject> {
+//
+//  @override
+//  void initState() {
+//    widget.listController.addListener(() {
+//      setState(() {
+//
+//      });
+//    });
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return  _displayList(widget.listController.value);
+//  }
+//}
+//
  Widget _displayList(List<String> x){
   List<Widget> listWidget = [];
   for(int i = 0; x.length>i ;i++){
@@ -279,58 +283,81 @@ class _ListObjectState extends State<ListObject> {
 
   return Column(children: listWidget);
  }
+//
+//
+//
+//
+//class IntObject extends StatefulWidget {
+//  final IntController intController;
+//
+//  IntObject({this.intController});
+//
+//
+//  @override
+//  _IntObjectState createState() => _IntObjectState();
+//}
+//
+//class _IntObjectState extends State<IntObject> {
+//
+//
+//  @override
+//  void initState() {
+//    widget.intController.addListener(() {
+//      setState(() {
+//
+//      });
+//    });
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(child: Text("Bos ${widget.intController.value}"));
+//  }
+//}
+//
 
 
 
 
-class IntObject extends StatefulWidget {
-  final IntController intController;
 
-  IntObject({this.intController});
+class AllObject<T extends ValueNotifier> extends StatefulWidget {
+  final T controller;
 
+  AllObject({this.controller});
 
   @override
-  _IntObjectState createState() => _IntObjectState();
+  _AllObjectState createState() => _AllObjectState();
 }
 
-class _IntObjectState extends State<IntObject> {
-
-
-  @override
-  void initState() {
-    widget.intController.addListener(() {
-      setState(() {
-
-      });
-    });
-  }
+class _AllObjectState extends State<AllObject> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text("Bos ${widget.intController.value}"));
-  }
-}
 
+    if(widget.controller is StringController){
+      return new Container(child: Text("${widget.controller.value}"));
+    }
+    else if(widget.controller is IntController){
+      return new Container(child: Text("Bos ${widget.controller.value}"));
+    } else if(widget.controller is ListController){
+      return  _displayList(widget.controller.value);
+    } else if(widget.controller is MapController){
+      return Container(child: Text(widget.controller.value["Name"]));
+    } else if(widget.controller is ClassController){
+      return Column(
+        children: <Widget>[
+          Text("Name: ${widget.controller.value.name}"),
+          Text("Age: ${widget.controller.value.age}"),
+          Text("Salary: ${widget.controller.value.salary}"),
+        ],
+      );
+    }
+//    return new Container(width: 0.0, height: 0.0);
 
+//    StringController s = widget.controller;
+//
+//    s.fungsiCustom();
 
-
-
-
-class StringObject extends StatefulWidget {
-  final StringController controller;
-
-  StringObject({this.controller});
-
-  @override
-  _StringObjectState createState() => _StringObjectState();
-}
-
-class _StringObjectState extends State<StringObject> {
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Container(child: Text("${widget.controller.value}"));
   }
 
   @override

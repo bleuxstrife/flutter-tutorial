@@ -15,6 +15,121 @@ class Employee {
   }
 }
 
+class DevErr {
+  final int code;
+  final String message;
+
+  DevErr({this.code, this.message});
+
+  factory DevErr.fromJson(Map<String, dynamic> json) {
+    return DevErr(
+      code: json['code'] as int,
+      message: json['message'] as String,
+    );
+  }
+
+  @override
+  String toString() {
+    return "($code) : $message";
+  }
+}
+
+class Team {
+  final String idTeam;
+  final String teamName;
+  final String formedYear;
+  final String urlJersey;
+  final String alternateName;
+  final String teamBadge;
+
+  Team({this.teamBadge,this.idTeam, this.teamName, this.formedYear, this.urlJersey, this.alternateName});
+
+  factory Team.fromJson(Map<String, dynamic> json){
+    return Team(
+      idTeam: json["idTeam"],
+      teamName: json["strTeam"],
+      alternateName: json["strAlternate"],
+      formedYear: json["intFormedYear"],
+      urlJersey: json["strTeamJersey"],
+      teamBadge: json["strTeamBadge"]
+    );
+  }
+}
+
+class League {
+  final String idLeague;
+  final String urlLogo;
+  final String description;
+  final String country;
+  final String formedYear;
+  final String leagueName;
+
+  League({this.idLeague, this.urlLogo, this.description, this.country, this.formedYear, this.leagueName});
+
+  factory League.fromJson(Map<String, dynamic> json){
+    return League(
+      idLeague: json["idLeague"],
+      leagueName: json["strLeague"],
+      formedYear: json["intFormedYear"],
+      description: json["strDescriptionEN"],
+      urlLogo: json["strLogo"],
+      country: json["strCountry"]
+    );
+  }
+}
+
+
+//"idTeam": "133616",
+//"idSoccerXML": "21",
+//"intLoved": "5",
+//"strTeam": "Tottenham",
+//"strTeamShort": null,
+//"strAlternate": "Spurs",
+//"intFormedYear": "1882",
+//"strSport": "Soccer",
+//"strLeague": "English Premier League",
+//"idLeague": "4328",
+//"strDivision": null,
+//"strManager": "",
+//"strStadium": "White Hart Lane",
+//"strKeywords": "",
+//"strRSS": "https://www.football.london/tottenham-hotspur-fc/?service=rss",
+//"strStadiumThumb": "https://www.thesportsdb.com/images/media/team/stadium/pigyw41550061064.jpg",
+//"strStadiumDescription": "Tottenham Hotspur Stadium is a stadium that will serve as the home ground for Tottenham Hotspur in north London, replacing the club's previous stadium, White Hart Lane. It has a planned capacity of 62,062, making it one of the largest in the Premier League and the largest for a club stadium in London. It is designed to be a multi-purpose stadium and features a world's-first dividing, retractable football pitch, that reveals a synthetic turf pitch underneath for NFL London Games, concerts and other events.\r\n\r\nThe construction of the stadium was initiated as the centrepiece of the Northumberland Development Project, intended to be the catalyst for a 20-year regeneration project in Tottenham. The project covers the site of the now demolished ground of White Hart Lane and areas adjacent to it. The project was first conceived in 2007 and announced in 2008, but the plan was revised several times, and the construction of the stadium, beset by disputes and delays, did not commence until 2015. The stadium is due to be completed during the 2018–19 season. The stadium is scheduled to open in 2019, with a ceremony before the first competitive game.\r\n\r\nThe name \"Tottenham Hotspur Stadium\" is a temporary name, the intention being to sell the naming rights to the stadium, so that it will be named after a sponsor. The stadium is occasionally referred to as New White Hart Lane by fans and some in the media.",
+//"strStadiumLocation": "Bill Nicholson Way, Tottenham, London",
+//"intStadiumCapacity": "36284",
+//"strWebsite": "www.tottenhamhotspur.com",
+//"strFacebook": "www.facebook.com/TottenhamHotspur",
+//"strTwitter": "twitter.com/spursofficial",
+//"strInstagram": "instagram.com/spursofficial",
+//"strDescriptionEN": "Tottenham Hotspur Football Club /ˈtɒt(ə)nəm/, commonly referred to as Spurs, is an English football club located in Tottenham, London, that plays in the Premier League. The club's home stadium is White Hart Lane. Its newly developed training ground is in Bulls Cross on the northern borders of the London Borough of Enfield.\r\n\r\nFounded in 1882, Tottenham won the FA Cup for the first time in 1901, making it the only non-League club to do so since the formation of the Football League. Tottenham was the first club in the 20th century to achieve the League and FA Cup Double, winning both competitions in the 1960–61 season. After successfully defending the FA Cup in 1962, in 1963 it became the first British club to win a UEFA club competition – the European Cup Winners' Cup. In 1967 it won the FA Cup for a third time in the 1960s. In the 1970s Tottenham won the League Cup on two occasions and was the inaugural winner of the UEFA Cup in 1972, becoming the first British club to win two different major European trophies. In the 1980s Spurs won several trophies: the FA Cup twice, FA Community Shield and the UEFA Cup in 1984. In the 1990s the club won the FA Cup and the League Cup. When it won the League Cup once more in 2008, it meant that it had won a major trophy in each of the last six decades – an achievement only matched by Manchester United.\r\n\r\nThe club's Latin motto is Audere est Facere (lit: \"To Dare Is to Do\"), and its emblem is a cockerel standing upon a football. The club has a long-standing rivalry with nearby neighbours Arsenal, with head-to-head fixtures known as the North London derby.",
+//"strDescriptionDE": null,
+//"strDescriptionFR": null,
+//"strDescriptionCN": null,
+//"strDescriptionIT": null,
+//"strDescriptionJP": null,
+//"strDescriptionRU": null,
+//"strDescriptionES": null,
+//"strDescriptionPT": null,
+//"strDescriptionSE": null,
+//"strDescriptionNL": null,
+//"strDescriptionHU": null,
+//"strDescriptionNO": null,
+//"strDescriptionIL": null,
+//"strDescriptionPL": null,
+//"strGender": "Male",
+//"strCountry": "England",
+//"strTeamBadge": "https://www.thesportsdb.com/images/media/team/badge/rxxqtp1448813512.png",
+//"strTeamJersey": "https://www.thesportsdb.com/images/media/team/jersey/qneyjo1509460508.png",
+//"strTeamLogo": "https://www.thesportsdb.com/images/media/team/logo/vptpur1424447736.png",
+//"strTeamFanart1": "https://www.thesportsdb.com/images/media/team/fanart/xpsuyq1420428497.jpg",
+//"strTeamFanart2": "https://www.thesportsdb.com/images/media/team/fanart/ywppvr1420509152.jpg",
+//"strTeamFanart3": "https://www.thesportsdb.com/images/media/team/fanart/tuuwpy1424110617.jpg",
+//"strTeamFanart4": "https://www.thesportsdb.com/images/media/team/fanart/xywqqs1421078139.jpg",
+//"strTeamBanner": "https://www.thesportsdb.com/images/media/team/banner/uqxurt1423693152.jpg",
+//"strYoutube": "www.youtube.com/user/spursofficial",
+//"strLocked": "unlocked"
+
 
 
 class Page {
