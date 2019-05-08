@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/icons.dart';
+import 'package:flutter_tutorial/tutorial_fase_1/icons.dart';
 
 class AccountPage extends StatefulWidget {
   @override
